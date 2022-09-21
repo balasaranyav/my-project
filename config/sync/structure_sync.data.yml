@@ -1,0 +1,14 @@
+blocks:
+  -
+    info: 'Timezone -> Date and Time'
+    langcode: en
+    uuid: 7dc32fe0-ca60-46cc-a8e9-201e321fe988
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p>To modify the timezone, Kindly visit&nbsp;<strong>/admin/config/user_location/settings</strong>&nbsp;page and select the desired timezone.</p>\r\n\r\n<p>Once selected click on SAVE.</p>\r\n\r\n<p>It will automatically display current the date and time of selected timezone in the mentioned format (<strong>25th Oct 2019 - 10:30 PM</strong>)</p>\r\n"
+          summary: ''
+          format: basic_html

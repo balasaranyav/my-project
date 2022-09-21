@@ -1,0 +1,13 @@
+name: qed-project
+recipe: drupal9
+config:
+  webroot: web
+  php: '7.4'
+services:
+  appserver:
+    build:
+      - composer install
+tooling:
+  drush:
+    service: appserver
+    cmd: /app/vendor/bin/drush
