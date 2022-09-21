@@ -1,0 +1,36 @@
+city.add:
+  path: '/cities/create'
+  defaults:
+    _entity_form: city.add
+    _title: 'Add City'
+  requirements:
+    _entity_create_access: 'city'
+
+entity.city.edit_form:
+  path: '/cities/{city}/edit'
+  defaults:
+    _entity_form: city.edit
+    _title: 'Edit City'
+  requirements:
+    _entity_access: 'city.edit'
+
+entity.city.delete_form:
+  path: '/cities/{city}/delete'
+  defaults:
+    _entity_form: city.delete
+    _title: 'Delete City'
+  requirements:
+    _entity_access: 'city.delete'
+
+entity.city.canonical:
+  path: '/cities/{city}'
+  defaults:
+    _entity_form: city
+    _title: 'City'
+  requirements:
+    _entity_access: 'city.view'
+
+entity.city.collection:
+  path: '/cities'
+  requirements:
+    _permission: 'administer own entity'

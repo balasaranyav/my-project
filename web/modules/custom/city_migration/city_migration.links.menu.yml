@@ -1,0 +1,5 @@
+city.toolbar.cities:
+  title: 'Cities List'
+  route_name: entity.city.collection
+  parent: system.admin
+  weight: 99

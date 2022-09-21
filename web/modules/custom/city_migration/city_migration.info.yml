@@ -1,0 +1,7 @@
+name: City Migration Entity
+type: module
+description: City entity.
+package: Custom
+core_version_requirement: ^9
+dependencies:
+  - drupal:views
