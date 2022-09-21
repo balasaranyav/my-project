@@ -49,6 +49,7 @@ use Drupal\Core\Entity\EntityStorageInterface;
  *     "edit-form" = "/city/{city}/edit",
  *     "create" = "/city/create",
  *   },
+ *   field_ui_base_route = "entity.city.settings"
  * )
  */
 class City extends EditorialContentEntityBase {

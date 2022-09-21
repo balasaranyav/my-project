@@ -3,3 +3,9 @@ city.toolbar.cities:
   route_name: entity.city.collection
   parent: system.admin
   weight: 99
+
+city.admin.structure.settings:
+  title: 'City Settings'
+  description: 'Configure city entity'
+  route_name: entity.city.settings
+  parent: system.admin_structure
