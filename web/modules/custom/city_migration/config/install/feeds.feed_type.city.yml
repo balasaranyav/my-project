@@ -1,0 +1,54 @@
+uuid: 557b414a-ce99-4db6-abb5-7ba8b69c74b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - city_migration
+    - feeds_ex
+label: City
+id: city
+description: 'Import data from json file.'
+help: ''
+import_period: 3600
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: json
+  directory: 'public://feeds'
+parser: jsonpath
+parser_configuration:
+  context:
+    value: '$.*'
+  source_encoding:
+    - auto
+  display_errors: false
+  line_limit: 100
+processor: 'entity:city'
+processor_configuration:
+  values: {  }
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: json
+  city:
+    value: city
+    label: city
+    machine_name: city
+    type: json
+mappings:
+  -
+    target: title
+    map:
+      value: city
+    settings: {  }
+    unique:
+      value: '1'

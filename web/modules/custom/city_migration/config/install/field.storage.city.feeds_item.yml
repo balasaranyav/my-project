@@ -1,0 +1,20 @@
+uuid: f157237d-ceda-48c9-b12c-56b130cf36b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - city_migration
+    - feeds
+id: city.feeds_item
+field_name: feeds_item
+entity_type: city
+type: feeds_item
+settings:
+  target_type: feeds_feed
+module: feeds
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

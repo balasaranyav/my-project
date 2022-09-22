@@ -1,0 +1,23 @@
+uuid: 163be60b-6e56-42f6-bddd-8acd9b256c14
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.city.feeds_item
+  module:
+    - city_migration
+    - feeds
+id: city.city.feeds_item
+field_name: feeds_item
+entity_type: city
+bundle: city
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item
