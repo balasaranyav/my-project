@@ -5,7 +5,6 @@ namespace Drupal\city_migration\Entity;
 use Drupal\Core\Entity\EditorialContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\Core\Entity\EntityStorageInterface;
 
 /**
  * Defines the city entity.
@@ -26,8 +25,6 @@ use Drupal\Core\Entity\EntityStorageInterface;
  *     "revision" = "vid",
  *     "status" = "status",
  *     "published" = "status",
- *     "uid" = "uid",
- *     "owner" = "uid",
  *   },
  *   revision_metadata_keys = {
  *     "revision_user" = "revision_uid",
@@ -60,29 +57,6 @@ class City extends EditorialContentEntityBase {
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     // Provides id and uuid fields.
     $fields = parent::baseFieldDefinitions($entity_type);
-
-    $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
-      ->setLabel(t('User'))
-      ->setDescription(t('The user that created the city.'))
-      ->setSetting('target_type', 'user')
-      ->setSetting('handler', 'default')
-      ->setDisplayOptions('view', [
-        'label' => 'hidden',
-        'type' => 'author',
-        'weight' => 0,
-      ])
-      ->setDisplayOptions('form', [
-        'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
-        'settings' => [
-          'match_operator' => 'CONTAINS',
-          'size' => '60',
-          'autocomplete_type' => 'tags',
-          'placeholder' => '',
-        ],
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
 
     $fields['title'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Title'))
@@ -118,32 +92,6 @@ class City extends EditorialContentEntityBase {
       ->setDescription(t('The time that the entity was last edited.'));
 
     return $fields;
-  }
-
-  /**
-   * {@inheritDoc}
-   *
-   * Makes the current user the owner of the entity.
-   */
-  public static function preCreate(EntityStorageInterface $storage_controller, array &$values) {
-    parent::preCreate($storage_controller, $values);
-    $values += [
-      'user_id' => \Drupal::currentUser()->id(),
-    ];
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getOwner() {
-    return $this->get('user_id')->entity;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getOwnerId() {
-    return $this->get('user_id')->target_id;
   }
 
 }

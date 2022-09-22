@@ -22,38 +22,21 @@ class CityAccessControlHandler extends EntityAccessControlHandler {
    */
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account) {
 
-    $access = AccessResult::forbidden();
-
+    $admin_permission = $this->entityType->getAdminPermission();
+    if ($account->hasPermission($admin_permission)) {
+      return AccessResult::allowed();
+    }
     switch ($operation) {
       case 'view':
-        if ($account->hasPermission('administer own entity')) {
-          $access = AccessResult::allowedIf($account->id() == $entity->getOwnerId())->cachePerUser()->addCacheableDependency($entity);
-        }
-        break;
+        return AccessResult::allowedIfHasPermission($account, 'administer own entity');
 
-      // Shows the edit buttons in operations.
       case 'update':
-        if ($account->hasPermission('administer own entity')) {
-          $access = AccessResult::allowedIf($account->id() == $entity->getOwnerId())->cachePerUser()->addCacheableDependency($entity);
-        }
-        break;
+        return AccessResult::allowedIfHasPermission($account, 'administer own entity');
 
-      // Lets me in on the edit-page of the entity.
-      case 'edit':
-        if ($account->hasPermission('administer own entity')) {
-          $access = AccessResult::allowedIf($account->id() == $entity->getOwnerId())->cachePerUser()->addCacheableDependency($entity);
-        }
-        break;
-
-      // Shows the delete buttons + access to delete this entity.
       case 'delete':
-        if ($account->hasPermission('administer own entity')) {
-          $access = AccessResult::allowedIf($account->id() == $entity->getOwnerId())->cachePerUser()->addCacheableDependency($entity);
-        }
-        break;
+        return AccessResult::allowedIfHasPermission($account, 'administer own entity');
     }
-
-    return $access;
+    return AccessResult::neutral();
   }
 
   /**

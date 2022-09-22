@@ -21,7 +21,6 @@
         "drupal/core-project-message": "^9.2",
         "drupal/core-recommended": "^9.2",
         "drupal/devel": "^4.1",
-        "drupal/examples": "^3.0",
         "drupal/feeds": "^3.0@beta",
         "drupal/feeds_ex": "^1.0@beta",
         "drupal/migrate_plus": "^6.0",

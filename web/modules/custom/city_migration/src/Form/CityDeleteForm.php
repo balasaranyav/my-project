@@ -32,7 +32,7 @@ class CityDeleteForm extends ContentEntityConfirmFormBase {
    * If the delete command is canceled, return to the city.
    */
   public function getCancelUrl() {
-    return Url::fromRoute('entity.city.edit_form', ['city' => $this->entity->id()]);
+    return new Url('entity.city.collection');
   }
 
   /**

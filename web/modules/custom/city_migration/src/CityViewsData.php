@@ -14,6 +14,15 @@ class CityViewsData extends EntityViewsData {
    */
   public function getViewsData() {
     $data = parent::getViewsData();
+
+    $data['city']['city_dynamic_operation_links'] = [
+      'title' => $this->t('Dynamic operations'),
+      'field' => [
+        'title' => $this->t('Dynamic operations'),
+        'help' => $this->t('Shows a dropdown with dynamic operations for city'),
+        'id' => 'city_dynamic_operation_links',
+      ],
+    ];
     return $data;
   }
 

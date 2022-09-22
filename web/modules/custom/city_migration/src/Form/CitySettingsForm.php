@@ -35,7 +35,7 @@ class CitySettingsForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['city_settings']['#markup'] = 'Settings form for city. We don\'t need additional entity settings. Manage field settings with the tabs above.';
+    $form['city_settings']['#markup'] = 'Settings form for city.';
     return $form;
   }
 
