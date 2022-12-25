@@ -28,7 +28,9 @@ class CityAccessControlHandler extends EntityAccessControlHandler {
     }
     switch ($operation) {
       case 'view':
-        return AccessResult::allowedIfHasPermission($account, 'administer own entity');
+        if ($entity->get('moderation_state')->getString() == 'draft') {
+          return AccessResult::allowedIfHasPermission($account, 'administer own entity');
+        }
 
       case 'update':
         return AccessResult::allowedIfHasPermission($account, 'administer own entity');

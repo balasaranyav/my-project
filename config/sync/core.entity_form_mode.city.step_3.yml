@@ -1,0 +1,10 @@
+uuid: 7a352972-9e84-4e9f-bf7f-e8566fbdc6f2
+langcode: en
+status: true
+dependencies:
+  module:
+    - city_migration
+id: city.step_3
+label: 'Step 3'
+targetEntityType: city
+cache: true

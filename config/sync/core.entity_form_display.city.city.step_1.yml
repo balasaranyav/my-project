@@ -1,0 +1,34 @@
+uuid: d09b12ab-b147-4ac5-b726-78229089c876
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.city.step_1
+    - field.field.city.city.feeds_item
+    - field.field.city.city.field_priority_level
+    - field.field.city.city.field_task_date
+  module:
+    - city_migration
+id: city.city.step_1
+targetEntityType: city
+bundle: city
+mode: step_1
+content:
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  feeds_item: true
+  field_priority_level: true
+  field_task_date: true
+  message: true
+  moderation_state: true
+  priority_level: true
+  task_category: true
+  task_date: true
+  task_description: true

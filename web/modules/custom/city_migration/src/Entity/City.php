@@ -36,6 +36,9 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *     "views_data" = "Drupal\city_migration\CityViewsData",
  *     "form" = {
  *       "add" = "Drupal\city_migration\Form\CityForm",
+ *       "step_1" = "Drupal\city_migration\Form\CityAddFormStep1",
+ *       "step_2" = "Drupal\city_migration\Form\CityAddFormStep2",
+ *       "step_3" = "Drupal\city_migration\Form\CityAddFormStep3",
  *       "edit" = "Drupal\city_migration\Form\CityForm",
  *       "delete" = "Drupal\city_migration\Form\CityDeleteForm",
  *     }
@@ -60,7 +63,7 @@ class City extends EditorialContentEntityBase {
 
     $fields['title'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Title'))
-      ->setDescription(t('The title of the city'))
+      ->setDescription(t('The title of the Task'))
       ->setSettings([
         'max_length' => 150,
         'text_processing' => 0,

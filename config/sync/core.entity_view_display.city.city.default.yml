@@ -1,0 +1,72 @@
+uuid: 5c040ff4-13af-4fd3-97bf-53766596df4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.city.city.feeds_item
+    - field.field.city.city.field_priority_level
+    - field.field.city.city.field_task_date
+  module:
+    - city_migration
+    - datetime
+    - options
+id: city.city.default
+targetEntityType: city
+bundle: city
+mode: default
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_priority_level:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_task_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  priority_level:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  task_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  task_description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  feeds_item: true

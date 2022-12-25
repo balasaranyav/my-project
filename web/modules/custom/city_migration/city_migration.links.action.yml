@@ -1,5 +1,5 @@
 city.add_city:
   route_name: city.add
-  title: 'Add City'
+  title: 'Add Task'
   appears_on:
     - entity.city.collection

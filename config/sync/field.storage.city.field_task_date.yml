@@ -1,0 +1,20 @@
+uuid: 64c1bae1-0488-4de9-85da-717a68c62e88
+langcode: en
+status: true
+dependencies:
+  module:
+    - city_migration
+    - datetime
+id: city.field_task_date
+field_name: field_task_date
+entity_type: city
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

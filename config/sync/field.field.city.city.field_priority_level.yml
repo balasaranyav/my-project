@@ -1,0 +1,21 @@
+uuid: af2acba9-1382-4681-a643-5e46ef620e06
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.city.field_priority_level
+  module:
+    - city_migration
+    - options
+id: city.city.field_priority_level
+field_name: field_priority_level
+entity_type: city
+bundle: city
+label: 'Priority Level'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

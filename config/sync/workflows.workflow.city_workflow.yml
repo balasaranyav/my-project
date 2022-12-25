@@ -1,0 +1,41 @@
+uuid: ab96f53e-e3fc-40a3-9bfc-088d729ce67a
+langcode: en
+status: true
+dependencies:
+  module:
+    - city_migration
+    - content_moderation
+id: city_workflow
+label: 'City Workflow'
+type: content_moderation
+type_settings:
+  states:
+    draft:
+      label: Todo
+      weight: 0
+      published: false
+      default_revision: false
+    published:
+      label: Done
+      weight: 1
+      published: true
+      default_revision: true
+  transitions:
+    create_new_draft:
+      label: 'Create New Draft'
+      from:
+        - draft
+        - published
+      to: draft
+      weight: 0
+    publish:
+      label: Done
+      from:
+        - draft
+        - published
+      to: published
+      weight: 1
+  entity_types:
+    city:
+      - city
+  default_moderation_state: draft
