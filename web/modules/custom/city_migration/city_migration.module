@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * City Migration Module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function city_migration_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  $forms = ['city_step_1_form', 'city_step_2_form',
+    'city_step_3_form', 'city_edit_form',
+  ];
+  if (in_array($form_id, $forms)) {
+    // Prevent revision log box access.
+    $form['revision_log']['#access'] = FALSE;
+  }
+}

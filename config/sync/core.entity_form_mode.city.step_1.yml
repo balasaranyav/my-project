@@ -1,0 +1,10 @@
+uuid: cfa18ef9-427c-4ecb-b213-9d5d51e3adb9
+langcode: en
+status: true
+dependencies:
+  module:
+    - city_migration
+id: city.step_1
+label: 'Step 1'
+targetEntityType: city
+cache: true

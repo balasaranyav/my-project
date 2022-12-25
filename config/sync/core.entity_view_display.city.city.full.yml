@@ -1,0 +1,59 @@
+uuid: 3c2ea6ef-3b6d-47d6-9543-c488b88e45ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.city.full
+    - field.field.city.city.feeds_item
+    - field.field.city.city.field_priority_level
+    - field.field.city.city.field_task_date
+  module:
+    - city_migration
+    - datetime
+    - options
+id: city.city.full
+targetEntityType: city
+bundle: city
+mode: full
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_priority_level:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_task_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  task_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  feeds_item: true
+  priority_level: true

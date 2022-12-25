@@ -1,0 +1,10 @@
+uuid: 3f2665ab-ea57-4148-bf25-db06c7b29608
+langcode: en
+status: true
+dependencies:
+  module:
+    - city_migration
+id: city.teaser
+label: teaser
+targetEntityType: city
+cache: true

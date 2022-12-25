@@ -1,0 +1,10 @@
+uuid: 89f4be0f-25c9-441d-a184-247ff65ce130
+langcode: en
+status: true
+dependencies:
+  module:
+    - city_migration
+id: city.full
+label: full
+targetEntityType: city
+cache: true

@@ -1,0 +1,24 @@
+uuid: ee76b2cd-5e30-46b0-add2-9d0ea28b3fc0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.city.field_task_date
+  module:
+    - city_migration
+    - datetime
+id: city.city.field_task_date
+field_name: field_task_date
+entity_type: city
+bundle: city
+label: Date
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

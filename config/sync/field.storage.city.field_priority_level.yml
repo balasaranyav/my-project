@@ -1,0 +1,30 @@
+uuid: ac41c3a8-4afc-4abf-9c14-11a7071b70fb
+langcode: en
+status: true
+dependencies:
+  module:
+    - city_migration
+    - options
+id: city.field_priority_level
+field_name: field_priority_level
+entity_type: city
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: high
+      label: High
+    -
+      value: medium
+      label: Medium
+    -
+      value: low
+      label: Low
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

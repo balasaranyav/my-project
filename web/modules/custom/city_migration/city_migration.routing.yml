@@ -1,16 +1,8 @@
-city.add:
-  path: '/cities/create'
-  defaults:
-    _entity_form: city.add
-    _title: 'Add City'
-  requirements:
-    _entity_create_access: 'city'
-
 entity.city.edit_form:
   path: '/cities/{city}/edit'
   defaults:
     _entity_form: city.edit
-    _title: 'Edit City'
+    _title: 'Edit Task'
   requirements:
     _entity_access: 'city.edit'
 
@@ -18,7 +10,7 @@ entity.city.delete_form:
   path: '/cities/{city}/delete'
   defaults:
     _entity_form: city.delete
-    _title: 'Delete City'
+    _title: 'Delete Task'
   requirements:
     _entity_access: 'city.delete'
 
@@ -26,7 +18,7 @@ entity.city.canonical:
   path: '/cities/{city}'
   defaults:
     _entity_view: 'city'
-    _title: 'City'
+    _title: 'Task'
   requirements:
     _entity_access: 'city.view'
 
@@ -39,6 +31,50 @@ entity.city.settings:
   path: '/admin/structure/city'
   defaults:
     _form: '\Drupal\city_migration\Form\CitySettingsForm'
-    _title: 'City Settings'
+    _title: 'Task Settings'
   requirements:
     _permission: 'administer own entity'
+
+city.publish:
+  path: '/cities/publish/{city}'
+  defaults:
+    _controller: '\Drupal\city_migration\Controller\CityPublishController::renderContent'
+    _title_callback: 'Publish Task'
+  requirements:
+    _custom_access: '\Drupal\city_migration\Controller\CityPublishController::access'
+  options:
+    parameters:
+      city:
+        type: entity:city
+
+city.add:
+  path: '/cities/create'
+  defaults:
+    _entity_form: city.step_1
+    _title: 'Step 1: Add Task Title'
+  requirements:
+    _entity_create_access: 'city'
+
+city.step1:
+  path: '/cities/create/{city}'
+  defaults:
+    _entity_form: city.step_1
+    _title: 'Step 1: Add Task Title'
+  requirements:
+    _entity_create_access: 'city'
+
+city.step2:
+  path: '/cities/create/step2/{city}'
+  defaults:
+    _entity_form: city.step_2
+    _title: 'Step 2: Add a description and date'
+  requirements:
+    _entity_access: 'city.edit'
+
+city.step3:
+  path: '/cities/create/step3/{city}'
+  defaults:
+    _entity_form: city.step_3
+    _title: 'Step 3: choose the priority of the task'
+  requirements:
+    _entity_access: 'city.edit'
