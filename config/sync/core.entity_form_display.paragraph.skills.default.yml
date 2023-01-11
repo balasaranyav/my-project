@@ -1,0 +1,33 @@
+uuid: 9aa347b7-8d96-4d3c-bdcd-e5060a5ab3a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.skills.field_technical_skill_rating
+    - field.field.paragraph.skills.field_technical_skills
+    - paragraphs.paragraphs_type.skills
+  module:
+    - fivestar
+id: paragraph.skills.default
+targetEntityType: paragraph
+bundle: skills
+mode: default
+content:
+  field_technical_skill_rating:
+    type: fivestar_stars
+    weight: 1
+    region: content
+    settings:
+      text_format: none
+      display_format: average
+      fivestar_widget: basic
+    third_party_settings: {  }
+  field_technical_skills:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

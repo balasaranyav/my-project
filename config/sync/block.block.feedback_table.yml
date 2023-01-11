@@ -1,0 +1,25 @@
+uuid: 829c3e47-b398-4c14-8800-f193a490ffdf
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:table:ccb9d0ae-34bb-40c9-8ebd-21f782b65c9e'
+  module:
+    - block_content
+  theme:
+    - feedback
+id: feedback_table
+theme: feedback
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:ccb9d0ae-34bb-40c9-8ebd-21f782b65c9e'
+settings:
+  id: 'block_content:ccb9d0ae-34bb-40c9-8ebd-21f782b65c9e'
+  label: Table
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

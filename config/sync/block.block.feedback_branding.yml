@@ -1,0 +1,25 @@
+uuid: af3f45e1-c989-4569-a0b1-8b8459e86a02
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - feedback
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: feedback_branding
+theme: feedback
+region: header
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

@@ -1,0 +1,21 @@
+uuid: 7c52dcc7-f0dc-4e5c-a1ea-b8dbb775c73d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_feedback_about
+    - node.type.send_feedback
+  module:
+    - options
+id: node.send_feedback.field_feedback_about
+field_name: field_feedback_about
+entity_type: node
+bundle: send_feedback
+label: 'Feedback about'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,22 @@
+uuid: 1e67f005-966e-4272-b360-49d482c3f2d3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - feedback
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: feedback_breadcrumbs
+theme: feedback
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

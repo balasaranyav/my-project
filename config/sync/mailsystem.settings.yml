@@ -1,0 +1,23 @@
+_core:
+  default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
+theme: current
+defaults:
+  sender: php_mail
+  formatter: swiftmailer
+modules:
+  swiftmailer:
+    none:
+      sender: swiftmailer
+      formatter: swiftmailer
+  gt_mail_system:
+    gt_mail_system_mail:
+      sender: php_mail
+      formatter: swiftmailer
+  lucius_html_mail:
+    lucius_html_mail:
+      sender: php_mail
+      formatter: swiftmailer
+  gt_feedback:
+    feedback_insert:
+      sender: php_mail
+      formatter: swiftmailer

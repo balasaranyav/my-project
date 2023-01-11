@@ -1,0 +1,36 @@
+uuid: e45ce576-17da-4907-a9b5-10219c16585e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.send_feedback.body
+    - field.field.node.send_feedback.field_feedback_about
+    - field.field.node.send_feedback.field_non_technical_skills
+    - field.field.node.send_feedback.field_send_date_range
+    - field.field.node.send_feedback.field_send_to
+    - field.field.node.send_feedback.field_technical_skills
+    - node.type.send_feedback
+  module:
+    - text
+    - user
+id: node.send_feedback.teaser
+targetEntityType: node
+bundle: send_feedback
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_feedback_about: true
+  field_non_technical_skills: true
+  field_send_date_range: true
+  field_send_to: true
+  field_technical_skills: true
+  links: true

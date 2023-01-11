@@ -1,0 +1,33 @@
+uuid: 74081022-640d-4fd3-a97e-22e73b822f51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.non_technical_skills.field_non_technical_skills
+    - field.field.paragraph.non_technical_skills.field_non_technical_skills_ratin
+    - paragraphs.paragraphs_type.non_technical_skills
+  module:
+    - fivestar
+id: paragraph.non_technical_skills.default
+targetEntityType: paragraph
+bundle: non_technical_skills
+mode: default
+content:
+  field_non_technical_skills:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_non_technical_skills_ratin:
+    type: fivestar_stars
+    weight: 1
+    region: content
+    settings:
+      text_format: none
+      display_format: average
+      fivestar_widget: basic
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

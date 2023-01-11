@@ -1,0 +1,29 @@
+uuid: 7a488218-663b-4e85-a78f-b3f8e680f913
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_non_technical_skills
+    - paragraphs.paragraphs_type.non_technical_skills
+    - taxonomy.vocabulary.non_technical_skills
+id: paragraph.non_technical_skills.field_non_technical_skills
+field_name: field_non_technical_skills
+entity_type: paragraph
+bundle: non_technical_skills
+label: 'Non-Technical skills'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      non_technical_skills: non_technical_skills
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

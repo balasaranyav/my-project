@@ -1,0 +1,21 @@
+uuid: 4d34560b-c58c-4102-b548-586eaeea6127
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_accuracy_in_code
+    - node.type.performance
+  module:
+    - options
+id: node.performance.field_accuracy_in_code
+field_name: field_accuracy_in_code
+entity_type: node
+bundle: performance
+label: "Can you score more than 80% accuracy in code review ?\t"
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

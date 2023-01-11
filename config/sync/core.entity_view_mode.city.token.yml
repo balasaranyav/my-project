@@ -1,0 +1,10 @@
+uuid: 039b9eb2-decf-469f-8738-b9915d967253
+langcode: en
+status: true
+dependencies:
+  module:
+    - city_migration
+id: city.token
+label: Token
+targetEntityType: city
+cache: true

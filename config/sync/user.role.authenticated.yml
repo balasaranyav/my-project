@@ -4,11 +4,18 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - filter.format.restricted_html
+    - node.type.performance
+    - node.type.request_feedback
+    - node.type.send_feedback
   module:
     - city_migration
     - comment
     - contact
+    - devel
     - filter
+    - legal
+    - node
     - search
     - shortcut
     - system
@@ -21,10 +28,17 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access devel information'
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'administer own entity'
+  - 'create performance content'
+  - 'create request_feedback content'
+  - 'create send_feedback content'
+  - 'edit own performance content'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
   - 'use text format basic_html'
+  - 'use text format restricted_html'
+  - 'view Terms and Conditions'

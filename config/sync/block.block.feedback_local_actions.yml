@@ -1,0 +1,20 @@
+uuid: 2fc7609f-5b69-4855-8eda-53872af99ab3
+langcode: en
+status: true
+dependencies:
+  theme:
+    - feedback
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: feedback_local_actions
+theme: feedback
+region: content
+weight: -4
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

@@ -1,0 +1,38 @@
+uuid: 7e26645b-0d75-4f52-b936-6f4596d3f0ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.performance.field_accuracy_in_code
+    - field.field.node.performance.field_code_free
+    - field.field.node.performance.field_follow_regular_timing
+    - field.field.node.performance.field_month
+    - field.field.node.performance.field_odd_time_support
+    - field.field.node.performance.field_perform_unit_testing
+    - field.field.node.performance.field_success_in_delivery
+    - field.field.node.performance.field_team_player
+    - field.field.node.performance.field_year
+    - node.type.performance
+  module:
+    - user
+id: node.performance.teaser
+targetEntityType: node
+bundle: performance
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_accuracy_in_code: true
+  field_code_free: true
+  field_follow_regular_timing: true
+  field_month: true
+  field_odd_time_support: true
+  field_perform_unit_testing: true
+  field_success_in_delivery: true
+  field_team_player: true
+  field_year: true

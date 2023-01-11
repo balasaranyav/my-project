@@ -1,0 +1,25 @@
+uuid: 2e49cc9d-e3d9-4bf8-859a-c41d1bd1bbd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_request_to
+    - node.type.request_feedback
+id: node.request_feedback.field_request_to
+field_name: field_request_to
+entity_type: node
+bundle: request_feedback
+label: 'Request to'
+description: 'use comma (,) to separate users. for example : alexa, google'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: send_to_users
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

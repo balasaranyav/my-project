@@ -1,0 +1,22 @@
+uuid: 3eb6e614-e0b9-473c-9930-eefe899680fd
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - feedback
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: feedback_content
+theme: feedback
+region: content
+weight: -3
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

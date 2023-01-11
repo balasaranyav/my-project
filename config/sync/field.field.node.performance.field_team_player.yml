@@ -1,0 +1,21 @@
+uuid: 25999170-b30c-4384-84aa-e6577e48af24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_team_player
+    - node.type.performance
+  module:
+    - options
+id: node.performance.field_team_player
+field_name: field_team_player
+entity_type: node
+bundle: performance
+label: "Are you a team player who always shares innovative ideas and worked on it ?\t"
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

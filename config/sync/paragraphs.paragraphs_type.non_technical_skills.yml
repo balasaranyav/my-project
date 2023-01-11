@@ -1,0 +1,10 @@
+uuid: 5af2497c-72b6-4ef2-b8b7-17b04be28fb4
+langcode: en
+status: true
+dependencies: {  }
+id: non_technical_skills
+label: 'Non-Technical Skills'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,21 @@
+uuid: 8fd15e50-85ed-490d-a1b6-fcbbe6377c4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_follow_regular_timing
+    - node.type.performance
+  module:
+    - options
+id: node.performance.field_follow_regular_timing
+field_name: field_follow_regular_timing
+entity_type: node
+bundle: performance
+label: "Do you follow regular office clocking and fill regular timelog ?\t"
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

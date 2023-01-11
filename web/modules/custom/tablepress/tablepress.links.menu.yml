@@ -1,0 +1,5 @@
+tablepress.admin.structure.settings:
+  title: 'Tablepress'
+  description: 'Configure Table'
+  route_name: entity.tablepress.settings
+  parent: system.admin_structure

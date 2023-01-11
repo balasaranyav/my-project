@@ -1,0 +1,29 @@
+uuid: dd3bc936-593a-4b5a-9caa-e5646de36251
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_non_technical_skills_ratin
+    - paragraphs.paragraphs_type.non_technical_skills
+  module:
+    - fivestar
+id: paragraph.non_technical_skills.field_non_technical_skills_ratin
+field_name: field_non_technical_skills_ratin
+entity_type: paragraph
+bundle: non_technical_skills
+label: 'Non-technical skills rating'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  stars: 5
+  allow_clear: false
+  allow_revote: true
+  allow_ownvote: false
+  rated_while: editing
+  enable_voting_target: false
+  target_bridge_field: ''
+  target_fivestar_field: ''
+field_type: fivestar
