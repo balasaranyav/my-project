@@ -1,0 +1,33 @@
+uuid: d7829e92-a094-4ef8-b0d2-7ff41ebeaba4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.table
+    - field.field.block_content.table.body
+    - field.field.block_content.table.field_table
+  module:
+    - tablefield
+    - text
+id: block_content.table.default
+targetEntityType: block_content
+bundle: table
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_table:
+    type: tablefield
+    label: above
+    settings:
+      row_header: true
+      column_header: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

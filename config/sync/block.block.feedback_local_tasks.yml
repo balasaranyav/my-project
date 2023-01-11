@@ -1,0 +1,22 @@
+uuid: 5e654e49-d5c1-4610-830f-24cd0769d17f
+langcode: en
+status: true
+dependencies:
+  theme:
+    - feedback
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: feedback_local_tasks
+theme: feedback
+region: content
+weight: -6
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

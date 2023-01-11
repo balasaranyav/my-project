@@ -1,0 +1,7 @@
+entity.tablepress.settings:
+  path: '/admin/structure/tabepress'
+  defaults:
+    _form: '\Drupal\tablepress\Form\TableConfigForm'
+    _title: 'Table Settings'
+  requirements:
+    _permission: 'administer tablepress'

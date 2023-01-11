@@ -1,0 +1,103 @@
+uuid: 8f67f1cc-403f-4a8f-9318-0de2ccbc0d98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.performance.field_accuracy_in_code
+    - field.field.node.performance.field_code_free
+    - field.field.node.performance.field_follow_regular_timing
+    - field.field.node.performance.field_month
+    - field.field.node.performance.field_odd_time_support
+    - field.field.node.performance.field_perform_unit_testing
+    - field.field.node.performance.field_success_in_delivery
+    - field.field.node.performance.field_team_player
+    - field.field.node.performance.field_year
+    - node.type.performance
+  module:
+    - path
+    - yearonly
+id: node.performance.default
+targetEntityType: node
+bundle: performance
+mode: default
+content:
+  field_accuracy_in_code:
+    type: options_buttons
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_code_free:
+    type: options_buttons
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_follow_regular_timing:
+    type: options_buttons
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_month:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_odd_time_support:
+    type: options_buttons
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_perform_unit_testing:
+    type: options_buttons
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_success_in_delivery:
+    type: options_buttons
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_team_player:
+    type: options_buttons
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_year:
+    type: yearonly_default
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  promote: true
+  sticky: true
+  uid: true

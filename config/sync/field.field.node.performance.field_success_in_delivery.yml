@@ -1,0 +1,21 @@
+uuid: c9a2d2b4-1323-4612-bd60-882dfe75c3da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_success_in_delivery
+    - node.type.performance
+  module:
+    - options
+id: node.performance.field_success_in_delivery
+field_name: field_success_in_delivery
+entity_type: node
+bundle: performance
+label: 'Do you mostly achieve success in your delivery ?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

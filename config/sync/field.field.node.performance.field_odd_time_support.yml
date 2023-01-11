@@ -1,0 +1,21 @@
+uuid: a13077a0-5c7b-45cc-8c4e-9baf7aa5c8c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_odd_time_support
+    - node.type.performance
+  module:
+    - options
+id: node.performance.field_odd_time_support
+field_name: field_odd_time_support
+entity_type: node
+bundle: performance
+label: 'Do you provide the odd-time support in project criticality / deadline ?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

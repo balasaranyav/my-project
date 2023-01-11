@@ -1,0 +1,29 @@
+uuid: 74584709-3fa3-479c-ad5b-40beaf9a26f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.table
+    - field.storage.block_content.field_table
+  module:
+    - tablefield
+id: block_content.table.field_table
+field_name: field_table
+entity_type: block_content
+bundle: table
+label: Table
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  export: false
+  restrict_rebuild: true
+  restrict_import: true
+  lock_values: false
+  cell_processing: 0
+  empty_rules:
+    ignore_table_structure: false
+    ignore_table_header: false
+field_type: tablefield

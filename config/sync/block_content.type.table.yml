@@ -1,0 +1,8 @@
+uuid: 7694e108-842a-4bd3-81bc-fb9763fa620d
+langcode: en
+status: true
+dependencies: {  }
+id: table
+label: Table
+revision: 0
+description: ''

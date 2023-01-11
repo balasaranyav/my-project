@@ -1,14 +1,15 @@
 _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: en
-uuid: 41e4ea17-4dc4-4263-8a59-ea926e8c2845
-name: my-project
-mail: admin@example.com
+uuid: d1c8c27b-cb56-4bb9-821e-ccda5481bd08
+name: '360-Degree Feedback'
+mail: balasaranya1807@gmail.com
 slogan: ''
 page:
   403: ''
   404: ''
-  front: /node
+  front: /user/login
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en
+mail_notification: ''

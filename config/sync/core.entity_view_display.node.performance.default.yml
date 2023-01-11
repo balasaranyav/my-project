@@ -1,0 +1,93 @@
+uuid: 71fd8b4c-4d19-4e0c-917c-dc04d688ddc7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.performance.field_accuracy_in_code
+    - field.field.node.performance.field_code_free
+    - field.field.node.performance.field_follow_regular_timing
+    - field.field.node.performance.field_month
+    - field.field.node.performance.field_odd_time_support
+    - field.field.node.performance.field_perform_unit_testing
+    - field.field.node.performance.field_success_in_delivery
+    - field.field.node.performance.field_team_player
+    - field.field.node.performance.field_year
+    - node.type.performance
+  module:
+    - options
+    - user
+    - yearonly
+id: node.performance.default
+targetEntityType: node
+bundle: performance
+mode: default
+content:
+  field_accuracy_in_code:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_code_free:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_follow_regular_timing:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_month:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_odd_time_support:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_perform_unit_testing:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_success_in_delivery:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_team_player:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_year:
+    type: yearonly_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

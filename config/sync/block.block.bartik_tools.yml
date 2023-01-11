@@ -6,6 +6,7 @@ dependencies:
     - system.menu.tools
   module:
     - system
+    - user
   theme:
     - bartik
 _core:
@@ -13,7 +14,7 @@ _core:
 id: bartik_tools
 theme: bartik
 region: sidebar_first
-weight: -6
+weight: -7
 provider: null
 plugin: 'system_menu_block:tools'
 settings:
@@ -24,4 +25,15 @@ settings:
   level: 1
   depth: 0
   expand_all_items: false
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/admin/feedback/received\r\n/node/add/send_feedback\r\n/node/add/request_feedback\r\n/admin/feedback/sent"
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator

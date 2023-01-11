@@ -1,0 +1,8 @@
+uuid: 41b067bf-c5bb-4108-ac6a-f6ed4692a150
+langcode: en
+status: true
+dependencies: {  }
+name: 'Technical Skills'
+vid: techical_skills
+description: 'List the Available Technologies.'
+weight: 0

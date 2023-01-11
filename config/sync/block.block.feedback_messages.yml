@@ -1,0 +1,22 @@
+uuid: c193e7b2-7d72-4709-ac05-8f4faa4e3c05
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - feedback
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: feedback_messages
+theme: feedback
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

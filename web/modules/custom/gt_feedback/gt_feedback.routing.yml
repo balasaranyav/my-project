@@ -1,0 +1,7 @@
+gt_feedback.send_feedback:
+  path: '/feedback/send'
+  defaults:
+    _form:  '\Drupal\gt_feedback\Form\SendFeedbackForm'
+    _title: 'Send Feedback form'
+  requirements:
+    _permission: 'administer own feedback'

@@ -1,0 +1,20 @@
+uuid: 503e37f1-4b53-4ffd-9d64-bdcdf8904eb5
+langcode: en
+status: true
+dependencies:
+  module:
+    - fivestar
+    - paragraphs
+id: paragraph.field_technical_skill_rating
+field_name: field_technical_skill_rating
+entity_type: paragraph
+type: fivestar
+settings:
+  vote_type: vote
+module: fivestar
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

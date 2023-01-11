@@ -1,0 +1,21 @@
+uuid: 26e03149-d6d7-4599-9564-90fb32e1484f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_send_date_range
+    - node.type.send_feedback
+  module:
+    - datetime_range
+id: node.send_feedback.field_send_date_range
+field_name: field_send_date_range
+entity_type: node
+bundle: send_feedback
+label: 'Date Range'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

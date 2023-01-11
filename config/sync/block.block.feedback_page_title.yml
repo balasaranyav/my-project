@@ -1,0 +1,20 @@
+uuid: fee9f4eb-189e-4d4c-8d43-965dbb1c1832
+langcode: en
+status: true
+dependencies:
+  theme:
+    - feedback
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: feedback_page_title
+theme: feedback
+region: content
+weight: -7
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }
