@@ -1,0 +1,8 @@
+uuid: ffa81559-5ecd-4a8a-acba-6911c4157101
+langcode: en
+status: true
+dependencies: {  }
+name: 'Non-Technical Skills'
+vid: non_technical_skills
+description: 'List the Non-Technical Skills.'
+weight: 0

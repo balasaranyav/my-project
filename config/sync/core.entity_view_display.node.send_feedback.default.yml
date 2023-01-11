@@ -1,0 +1,75 @@
+uuid: 103db0c2-e60e-4b40-853e-e4d2283bb071
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.send_feedback.body
+    - field.field.node.send_feedback.field_feedback_about
+    - field.field.node.send_feedback.field_non_technical_skills
+    - field.field.node.send_feedback.field_send_date_range
+    - field.field.node.send_feedback.field_send_to
+    - field.field.node.send_feedback.field_technical_skills
+    - node.type.send_feedback
+  module:
+    - datetime_range
+    - entity_reference_revisions
+    - options
+    - text
+    - user
+id: node.send_feedback.default
+targetEntityType: node
+bundle: send_feedback
+mode: default
+content:
+  body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_feedback_about:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_non_technical_skills:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_send_date_range:
+    type: daterange_custom
+    label: above
+    settings:
+      timezone_override: ''
+      date_format: d-M-Y
+      separator: '-'
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_send_to:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_technical_skills:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  links: true

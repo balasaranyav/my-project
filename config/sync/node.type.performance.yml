@@ -1,0 +1,17 @@
+uuid: b56b3fcd-ec6b-48cc-8140-ddaf58d0e66c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Performance
+type: performance
+description: 'Use Performance for adding ratings based on employee performance.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

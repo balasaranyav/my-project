@@ -1,0 +1,17 @@
+uuid: 44aa7b5f-c49d-4b1f-a106-e1328ef82b44
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Request
+type: request_feedback
+description: 'Use Request feedback for requesting feedback from your colleagues.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,27 @@
+uuid: 9e165b8f-db72-481a-aadb-a2c706aae9e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_follow_regular_timing
+field_name: field_follow_regular_timing
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: 'Yes'
+    -
+      value: '0'
+      label: 'No'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

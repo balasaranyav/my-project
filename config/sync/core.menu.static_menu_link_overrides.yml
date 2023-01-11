@@ -7,3 +7,15 @@ definitions:
     weight: 0
     expanded: false
     enabled: true
+  standard__front_page:
+    menu_name: main
+    parent: ''
+    weight: -50
+    expanded: false
+    enabled: true
+  city__toolbar__cities:
+    enabled: false
+    menu_name: admin
+    parent: system.admin
+    expanded: false
+    weight: 99

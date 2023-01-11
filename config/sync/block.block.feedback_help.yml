@@ -1,0 +1,22 @@
+uuid: 6b15135b-e1c9-4f45-9ea9-c11c0990dbf9
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - feedback
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: feedback_help
+theme: feedback
+region: content
+weight: -5
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

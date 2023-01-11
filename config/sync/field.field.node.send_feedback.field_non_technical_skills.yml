@@ -1,0 +1,34 @@
+uuid: d5f574ad-be39-4e1d-8fa0-daf078366448
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_non_technical_skills
+    - node.type.send_feedback
+    - paragraphs.paragraphs_type.non_technical_skills
+  module:
+    - entity_reference_revisions
+id: node.send_feedback.field_non_technical_skills
+field_name: field_non_technical_skills
+entity_type: node
+bundle: send_feedback
+label: 'Non-Technical Skills'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      non_technical_skills: non_technical_skills
+    negate: 0
+    target_bundles_drag_drop:
+      non_technical_skills:
+        weight: 3
+        enabled: true
+      skills:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

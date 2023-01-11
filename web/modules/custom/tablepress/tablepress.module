@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * @file
+ * Tablepress Module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function tablepress_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'tablepress_config_form') {
+    // String to uniquely identify DOM forms.
+    $id = implode('-', $form['#parents']);
+    $form['#tree'] = TRUE;
+
+    $form['tablepress'] = [
+      '#type' => 'fieldset',
+      '#attributes' => ['class' => ['form-tablepress']],
+      '#prefix' => '<div id="tablepress-' . $id . '-wrapper">',
+      '#suffix' => '</div>',
+    ];
+
+    $form['tablepress']['table'] = [
+      '#type' => 'table',
+    ];
+    // Assign value.
+    $rows = \Drupal::config('tablepress.settings')->get('rows');
+    $cols = \Drupal::config('tablepress.settings')->get('cols');
+    for ($i = 0; $i < $rows; $i++) {
+      for ($ii = 0; $ii < $cols; $ii++) {
+        if (!empty($form[$i][$ii])) {
+          $form['tablepress']['table'][$i][$ii] = [
+            '#type' => 'item',
+            '#value' => $form[$i][$ii],
+            '#title' => $form[$i][$ii],
+          ];
+        }
+        else {
+          $form['tablepress']['table'][$i][$ii] = [
+            '#type' => 'textfield',
+            // '#maxlength' => 2048,
+            '#size' => 0,
+            '#attributes' => [
+              'class' => ['tablepress-row-' . $i, 'tablepress-col-' . $ii],
+              'style' => 'width:100%',
+            ],
+          ];
+        }
+      }
+    }
+
+  }
+}

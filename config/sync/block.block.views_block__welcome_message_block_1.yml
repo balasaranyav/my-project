@@ -1,0 +1,38 @@
+uuid: f945b05e-dfcd-4aa4-ab5c-411217973cf4
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.welcome_message
+  module:
+    - system
+    - user
+    - views
+  theme:
+    - feedback
+id: views_block__welcome_message_block_1
+theme: feedback
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:welcome_message-block_1'
+settings:
+  id: 'views_block:welcome_message-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
+      administrator: administrator
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/user/*'

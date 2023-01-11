@@ -1,0 +1,31 @@
+uuid: 9398fa4f-c175-4fc9-8055-fa7c1ba527a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_technical_skills
+    - node.type.send_feedback
+    - paragraphs.paragraphs_type.skills
+  module:
+    - entity_reference_revisions
+id: node.send_feedback.field_technical_skills
+field_name: field_technical_skills
+entity_type: node
+bundle: send_feedback
+label: 'Technical Skills'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      skills: skills
+    negate: 0
+    target_bundles_drag_drop:
+      skills:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

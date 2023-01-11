@@ -1,0 +1,36 @@
+uuid: 3fcb2746-4d47-4018-8063-4a24427b1ca3
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+    - system
+    - user
+  theme:
+    - feedback
+_core:
+  default_config_hash: Q-4EcGAsu26ICu4ejEz0uE1zv4akpiaOsizxgZfAmEw
+id: feedback_search
+theme: feedback
+region: sidebar_first
+weight: -6
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  label_display: visible
+  provider: search
+  page_id: node_search
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/admin/feedback/received\r\n/node/add/send_feedback\r\n/node/add/request_feedback\r\n/admin/feedback/sent"
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator

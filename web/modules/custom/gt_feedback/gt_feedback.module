@@ -1,0 +1,222 @@
+<?php
+
+/**
+ * @file
+ * Grow Together Feedback Module.
+ */
+
+use Drupal\user\Entity\User;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_form_alter().
+ */
+function gt_feedback_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+
+  // Alter Comment field settings.
+  if ($form_id == 'comment_comment_form') {
+    $form['subject']['#access'] = FALSE;
+    $form['actions']['submit']['#value'] = 'Send';
+    $form['comment_body']['widget'][0]['#title'] = 'Reply';
+  }
+  // Alter send / request feedback.
+  if ($form_id == 'node_request_feedback_form' || $form_id == 'node_send_feedback_form') {
+    $form['additional_settings']['#access'] = FALSE;
+    $form['revision_log']['#access'] = FALSE;
+    $form['group_settings']['#access'] = FALSE;
+    $form['author']['#access'] = FALSE;
+    $form['actions']['preview']['#access'] = FALSE;
+    $form['field_send_to']['#states'] = [
+      'visible' => [
+        ':input[name="field_feedback_about"]' => ['value' => 'individual'],
+      ],
+    ];
+    $form['field_send_to']['widget']['0']['target_id']['#states'] = [
+      'required' => [
+          [':input[name="field_feedback_about"]' => ['value' => 'individual']],
+      ],
+    ];
+    $form['field_non_technical_skills']['#states'] = [
+      'visible' => [
+        ':input[name="field_feedback_about"]' => ['value' => 'individual'],
+      ],
+    ];
+    $form['field_technical_skills']['#states'] = [
+      'visible' => [
+        ':input[name="field_feedback_about"]' => ['value' => 'individual'],
+      ],
+    ];
+    // dpm($form['field_technical_skills']['#states']);.
+    // $form['field_non_technical_skills']['widget']['#states'] = [
+    //   'required' => [
+    //       [':input[name="field_feedback_about"]' => ['value' => 'individual']],
+    //   ],
+    // ];
+    // $form['field_technical_skills']['widget']['#states'] = [
+    //   'required' => [
+    //       [':input[name="field_feedback_about"]' => ['value' => 'individual']],
+    //   ],
+    // ];.
+    // Redirection on node save.
+    $entity = $form_state->getFormObject()->getEntity();
+    $entity_type = $entity->bundle();
+    if (isset($entity_type) && ($entity_type == 'send_feedback' || 'request_feedback')) {
+      foreach (array_keys($form['actions']) as $action) {
+        if ($action !== 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+          $form['actions'][$action]['#submit'][] = '_gt_feedback_node_form_submit';
+        }
+      }
+    }
+    // Change save button text.
+    if ($form_id == 'node_request_feedback_form') {
+      $form['actions']['submit']['#value'] = 'Send Request';
+    }
+    if ($form_id == 'node_send_feedback_form') {
+      $form['actions']['submit']['#value'] = 'Send Feedback';
+    }
+    // $form['field_feedback_about']['widget'][0]['target_id']["#value"];
+  }
+
+  if ($form_id == 'entity_view_display_edit_form' && $form['#entity_type'] == 'node') {
+    if ($form['#bundle'] == 'send_feedback') {
+      // dpm($form['#fields']);.
+    }
+  }
+  if ($form_id == 'node_performance_form') {
+    $form['revision_log']['#access'] = FALSE;
+    $form['actions']['preview']['#access'] = FALSE;
+  }
+
+}
+
+/**
+ * Change redirection on node save.
+ */
+function _gt_feedback_node_form_submit($form, FormStateInterface $form_state) {
+  $entity = $form_state->getFormObject()->getEntity();
+  $entity_type = $entity->bundle();
+  // Redirect to send feedback(s) page.
+  if ($entity_type == 'send_feedback') {
+    $url = Url::fromRoute('view.sent_feedback_s_.page_1');
+    $form_state->setRedirectUrl($url);
+  }
+  // Redirect to requested feedback(s) page.
+  if ($entity_type == 'request_feedback') {
+    $url = Url::fromRoute('view.requested_feedback.page_1');
+    $form_state->setRedirectUrl($url);
+  }
+
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function gt_feedback_field_widget_entity_reference_paragraphs_form_alter(&$element, &$form_state, $context) {
+  if ($element['#paragraph_type'] == 'skills' || $element['#paragraph_type'] == 'non_technical_skills') {
+    $element['top']['paragraph_type_title']['#access'] = FALSE;
+    $element['top']['links']['remove_button']['#access'] = FALSE;
+    // dpm($element);
+    foreach (Element::children($element['subform']) as $child) {
+      // Move titles underneath.
+      if (isset($element['subform'][$child]['widget'][0])) {
+        foreach (Element::children($element['subform'][$child]['widget'][0]) as $value_key) {
+          $element['subform'][$child]['widget'][0][$value_key]['#required'] = TRUE;
+
+          // $element['subform'][$child]['widget'][0][$value_key]['#description'] = $element['subform'][$child]['widget'][0][$value_key]['#title'];
+          // $element['subform'][$child]['widget'][0][$value_key]['#title_display'] = 'none';
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function gt_feedback_mail($key, &$message, $params) {
+  $options = [
+    'langcode' => $message['langcode'],
+  ];
+
+  switch ($key) {
+    case 'feedback_insert':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Feedback created', $options);
+      $message['body'][] = Html::escape($params['message']);
+      break;
+  }
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function gt_feedback_entity_insert(EntityInterface $entity) {
+
+  $mailManager = \Drupal::service('plugin.manager.mail');
+  $module = 'gt_feedback';
+  $key = 'feedback_insert';
+  // $to = \Drupal::currentUser()->getEmail();
+  $params['message'] = "Message";
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $send = TRUE;
+  // Send Feedback.
+  if ($entity->bundle() === 'send_feedback') {
+    if ($entity->hasField('field_feedback_about')) {
+      $except_individual = $entity->get('field_feedback_about')->getValue()[0]['value'];
+    }
+    if ($except_individual === 'individual') {
+      $send_to_user_id = $entity->get('field_send_to')->getValue()[0]['target_id'];
+      $send_to_user_email = User::load($send_to_user_id);
+      // Email to be sent to this Email ID.
+      $to = $send_to_user_email->getEmail();
+    }
+    else {
+      $to = \Drupal::config('system.site')->get('mail');
+    }
+    $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+    if ($result['result'] !== TRUE) {
+      $message = t('There was a problem sending alert email notification to
+      @email for creating feedback @id.',
+      ['@email' => $to, '@id' => $entity->id()]);
+      // Drupal dblog.
+      \Drupal::logger('gt_feedback')->error($message);
+      return;
+    }
+
+    $message = t('An email notification has been sent to @email for creating feedback @id.',
+    ['@email' => $to, '@id' => $entity->id()]);
+    // Drupal dblog.
+    \Drupal::logger('gt_feedback')->notice($message);
+  }
+
+  // Request Feedback.
+  if ($entity->bundle() === 'request_feedback') {
+    $request_to_ids = array_column($entity->field_request_to->getValue(), 'target_id');
+    $to = [];
+    foreach ($request_to_ids as $item) {
+      $request_target_id = $item['target_id'];
+      $request_to_ids = User::load($request_target_id);
+      // Email to be sent to this Email ID.
+      $to = $request_to_ids->getEmail();
+      $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+      if ($result['result'] !== TRUE) {
+        $message = t('There was a problem sending alert email notification to
+        @email for creating feedback @id.',
+        ['@email' => $to, '@id' => $entity->id()]);
+        // Drupal dblog.
+        \Drupal::logger('gt_feedback')->error($message);
+        return;
+      }
+
+      $message = t('An email notification has been sent to @email for creating feedback @id.',
+      ['@email' => $to, '@id' => $entity->id()]);
+      // Drupal dblog.
+      \Drupal::logger('gt_feedback')->notice($message);
+    }
+  }
+
+}

@@ -1,0 +1,29 @@
+uuid: b489d33c-3f98-4747-a02b-3b584a669bb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_technical_skills
+    - paragraphs.paragraphs_type.skills
+    - taxonomy.vocabulary.techical_skills
+id: paragraph.skills.field_technical_skills
+field_name: field_technical_skills
+entity_type: paragraph
+bundle: skills
+label: 'Technical Skills'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      techical_skills: techical_skills
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

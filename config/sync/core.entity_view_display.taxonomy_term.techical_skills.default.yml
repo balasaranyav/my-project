@@ -1,0 +1,21 @@
+uuid: 69cc47fc-424f-4550-86b9-dd30bd34a34f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.techical_skills
+  module:
+    - text
+id: taxonomy_term.techical_skills.default
+targetEntityType: taxonomy_term
+bundle: techical_skills
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

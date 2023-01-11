@@ -1,0 +1,22 @@
+uuid: 72aeb5d4-2afa-4e18-96b7-9933185de9d1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - feedback
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: feedback_powered
+theme: feedback
+region: footer_fifth
+weight: 10
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }
