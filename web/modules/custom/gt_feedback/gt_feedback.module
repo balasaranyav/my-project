@@ -5,6 +5,7 @@
  * Grow Together Feedback Module.
  */
 
+// Namespace Drupal\social_auth_google\Controller;.
 use Drupal\user\Entity\User;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
@@ -17,6 +18,17 @@ use Drupal\Core\Url;
  */
 function gt_feedback_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
 
+  if ($form_id == 'user_login_form') {
+    $form['actions']['google'] = [
+      '#type' => 'link',
+      '#title' => t('Continue with Google'),
+      "#weight" => 1,
+      '#url' => Url::fromRoute('social_auth_google.redirect_to_google'),
+      '#attributes' => [
+        'class' => 'button button--primary js-form-submit form-submit',
+      ],
+    ];
+  }
   // Alter Comment field settings.
   if ($form_id == 'comment_comment_form') {
     $form['subject']['#access'] = FALSE;
@@ -50,17 +62,6 @@ function gt_feedback_form_alter(array &$form, FormStateInterface $form_state, $f
         ':input[name="field_feedback_about"]' => ['value' => 'individual'],
       ],
     ];
-    // dpm($form['field_technical_skills']['#states']);.
-    // $form['field_non_technical_skills']['widget']['#states'] = [
-    //   'required' => [
-    //       [':input[name="field_feedback_about"]' => ['value' => 'individual']],
-    //   ],
-    // ];
-    // $form['field_technical_skills']['widget']['#states'] = [
-    //   'required' => [
-    //       [':input[name="field_feedback_about"]' => ['value' => 'individual']],
-    //   ],
-    // ];.
     // Redirection on node save.
     $entity = $form_state->getFormObject()->getEntity();
     $entity_type = $entity->bundle();
@@ -90,6 +91,15 @@ function gt_feedback_form_alter(array &$form, FormStateInterface $form_state, $f
     $form['revision_log']['#access'] = FALSE;
     $form['actions']['preview']['#access'] = FALSE;
   }
+
+}
+
+/**
+ * Registration Form submit.
+ */
+function _gt_feedback_registration_form_submit($form, FormStateInterface $form_state) {
+  $url = Url::fromRoute('user.register');
+  $form_state->setRedirectUrl($url);
 
 }
 
@@ -125,9 +135,6 @@ function gt_feedback_field_widget_entity_reference_paragraphs_form_alter(&$eleme
       if (isset($element['subform'][$child]['widget'][0])) {
         foreach (Element::children($element['subform'][$child]['widget'][0]) as $value_key) {
           $element['subform'][$child]['widget'][0][$value_key]['#required'] = TRUE;
-
-          // $element['subform'][$child]['widget'][0][$value_key]['#description'] = $element['subform'][$child]['widget'][0][$value_key]['#title'];
-          // $element['subform'][$child]['widget'][0][$value_key]['#title_display'] = 'none';
         }
       }
     }
